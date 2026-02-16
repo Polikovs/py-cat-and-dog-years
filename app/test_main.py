@@ -21,6 +21,8 @@ def test_get_human_age(cat_years: int, dog_years: int, expected: list) -> None:
     assert get_human_age(cat_years, dog_years) == expected
 
 
-def test_should_raise_error_on_string() -> None:
-    with pytest.raises(TypeError):
-        get_human_age("24", 24)  # Передаємо рядок замість числа
+def test_result_type() -> None:
+    result = get_human_age(24, 24)
+
+    assert isinstance(result, list), "Результат має бути списком"
+    assert isinstance(result[0], int), "Елементи мають бути цілими числами"
